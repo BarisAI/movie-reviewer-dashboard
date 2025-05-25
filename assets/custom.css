@@ -1,0 +1,41 @@
+body {
+    background-color: #f9f9f9;
+    font-family: 'Segoe UI', sans-serif;
+    color: #2c3e50;
+}
+
+h1, h2, h3 {
+    color: #34495e;
+}
+
+.tab--selected {
+    background-color: #ecf0f1 !important;
+    font-weight: bold;
+    border-bottom: 2px solid #2980b9;
+}
+
+input[type="text"], .Select-control, .rc-slider, .DateRangePickerInput {
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    padding: 5px;
+    background-color: white;
+}
+
+button {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #1f618d;
+}
+
+div[data-dash-is-loading="true"]::after {
+    content: "Loading...";
+    font-style: italic;
+    color: #7f8c8d;
+}
