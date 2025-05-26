@@ -157,8 +157,11 @@ def update_search_results(n_clicks, selected_genre, rating_range, start_date, en
     filtered_df = movies_final
     
     if search_value:
-        filtered_df = filtered_df[filtered_df['title'].str.contains(search_value, case=False, na=False) |
-                                  filtered_df['genres'].apply(lambda x: any(genre.lower() in search_value.lower() for genre in x))]
+        search_value_lower = search_value.lower()
+        filtered_df = filtered_df[
+            filtered_df['title'].str.lower().str.contains(search_value_lower, na=False) |
+            filtered_df['genres'].str.lower().str.contains(search_value_lower, na=False)
+        ]
     
     if selected_genre:
         filtered_df = filtered_df[filtered_df['genres'].apply(lambda x: selected_genre in x)]
