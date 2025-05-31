@@ -201,12 +201,13 @@ app.layout = html.Div([
     [Input('movie-table', 'selected_rows')]
 )
 def display_selected_movie(selected_rows):
+    sorted_df = movies_final.sort_values(by='averageRating', ascending=False)
     if selected_rows is None or len(selected_rows) == 0:
         return html.P("Click a row in the table to see movie details.")
 
-    row = movies_final.iloc[selected_rows[0]]
+    row = sorted_df.iloc[selected_rows[0]]
     return html.Div([
-        html.H3(f" {row['title']}"),
+        html.H3(f"{row['title']}"),
         html.P(f"Genres: {row['genres']}"),
         html.P(f"Average Rating: {row['averageRating']}"),
         html.P(f"Release Date: {row['releaseDate']}")
